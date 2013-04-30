@@ -10,11 +10,12 @@ class SearchParameters(models.Model):
     precursor_rangestart = models.IntegerField(default=100)
     precursor_ionstop = models.IntegerField(default=1000)
 # LCMS Inversion Parameter:
-# M/Z equivalence Windows, in PPM
+# m/z equivalence Windows, in PPM
+# Linear Ion Trap (50) | Orbitrap (4)  
     mz_equivalence_window = models.IntegerField(help_text='in PPM', default=50)
 # XIC Peak Signal/Noise Parameter:
-# Characteristic Chromatographic Peak Width
-    min_peakwidth = models.DecimalField(max_digits=20, decimal_places=4)
+# Characteristic Chromatographic Peak Width, 0-2
+    min_peakwidth = models.DecimalField(max_digits=20, decimal_places=4, default=0.2)
 # Filter MS-Only Search Range
     filter_ms_only = models.BooleanField()
 # FileField
